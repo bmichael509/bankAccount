@@ -1,0 +1,29 @@
+@model BankAccount.Models.User
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Web Page</title>
+</head>
+<body>
+    <div id="register">
+        <h1>Login</h1>
+        <a href="/">Need to Register?</a>
+        <form asp-action="LoginUser" asp-controller="Home" method="POST">
+            <div>
+                <span class="col-sm-8 offset-sm-4 text-danger" asp-validation-for="Email"></span><br>
+                <label asp-for="Email" class="col-sm-4"></label>
+                <input type="email" asp-for="Email" class="col-sm-8 form-control">
+            </div>
+            <div>        
+                <span class="col-sm-8 offset-sm-4 text-danger" asp-validation-for="Password"></span><br>
+                <label asp-for="Password" class="col-sm-4"></label>
+                <input type="password" asp-for="Password" class="col-sm-8 form-control">
+            </div>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+    
+</body>
+</html>

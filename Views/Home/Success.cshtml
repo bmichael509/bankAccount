@@ -1,0 +1,40 @@
+@model BankAccount.Models.AccountUserWrapper
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="container">
+        <h1>Welcome @Model.LoggedInUser.FirstName @Model.LoggedInUser.LastName</h1>
+        <p>Current balance @Model.ListOfTransactions.Sum(t => t.Amount)</p>
+        <form asp-action="CreateTransaction" asp-controller="Home" method="POST">
+            <div class="form-group row">
+                    <span class="col-sm-8 offset-sm-4 text-danger" asp-validation-for="TransactionForm.Amount"></span>
+                    <label asp-for="TransactionForm.Amount" class="col-sm-4">Deposit/Withdraw:</label>
+                    <input asp-for="TransactionForm.Amount" class="col-sm-8 form-control" step=".01">
+                </div>
+                <div class="form-group row">
+                    <input value="Submit" type="submit">  
+                </div>
+                <div class="TransactionTable">
+                    <table>
+                    <tr>
+                        <th>Amount</th>
+                        <th>Date</th>
+                    </tr>
+                        @foreach (var checkPlease in Model.ListOfTransactions)
+                        {
+                            <tr>
+                                <td>@checkPlease.Amount</td> 
+                                <td>@checkPlease.CreatedAt</td>
+                            </tr>
+                        }
+                    </table>
+                </div>
+        </form>
+    </div>
+</body>
+</html>

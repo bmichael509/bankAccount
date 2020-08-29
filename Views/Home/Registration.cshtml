@@ -1,0 +1,46 @@
+@model BankAccount.Models.User
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Web Page</title>
+</head>
+<body>
+    
+    <div id="register">
+        <h1>Register to this cool site</h1>
+        <a href="/login">Already Registered?</a>
+        <form asp-action="RegisterNewUser" asp-controller="Home" method="POST">
+            <div>
+                <span class="col-sm-8 offset-sm-4 text-danger" asp-validation-for="FirstName"></span><br>
+                <label asp-for="FirstName"></label>
+                <input type="text" asp-for="FirstName">
+            </div>
+            <div>
+                
+                <span class="col-sm-8 offset-sm-4 text-danger" asp-validation-for="LastName"></span><br>
+                <label asp-for="LastName"></label>
+                <input type="text" asp-for="LastName">
+            </div>
+            <div>
+                <span class="col-sm-8 offset-sm-4 text-danger" asp-validation-for="Email"></span><br>
+                <label asp-for="Email"></label>
+                <input type="email" asp-for="Email">
+            </div>
+            <div>        
+                <span class="col-sm-8 offset-sm-4 text-danger" asp-validation-for="Password"></span><br>
+                <label asp-for="Password"></label>
+                <input type="password" asp-for="Password">
+            </div>
+            <div>
+                <span class="col-sm-8 offset-sm-4 text-danger" asp-validation-for="ConfirmPassword"></span><br>
+                <label asp-for="ConfirmPassword"></label>
+                <input type="password" asp-for="ConfirmPassword">
+            </div>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+    
+</body>
+</html>
